@@ -1,0 +1,32 @@
+{
+  "name": "simonvl01.github.io",
+  "version": "1.0.0",
+  "description": "Mijn persoonlijke site",
+  "main": "app.js",
+  "dependencies": {
+    "d3": "^4.10.2",
+    "jquery": "^2.1.4",
+    "jquery-mobile": "^1.4.1",
+    "moment": "^2.18.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimonVL01/simonvl01.github.io.git"
+  },
+  "keywords": [
+    "vdab",
+    "javascript",
+    "jquery",
+    "teaching"
+  ],
+  "author": "Simon Vanleeuw",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SimonVL01/simonvl01.github.io/issues"
+  },
+  "homepage": "https://github.com/SimonVL01/simonvl01.github.io#readme"
+}

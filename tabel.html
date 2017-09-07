@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<style>
+
+    table {
+
+        margin: auto;
+
+        border-collapse: collapse;
+
+    }
+
+
+
+    td {
+
+        border: 0.2rem solid black;
+
+        padding: 0.5rem;
+
+        font-family: sans-serif;
+
+        text-align: center;
+
+        width: 2rem;
+
+        height: 2rem;
+
+    }
+
+
+
+    .adjacent {
+
+        background-color: cyan;
+
+    }
+
+
+
+    .prime {
+
+        transition-property: background-color;
+
+        transition-duration: 1s;
+
+        background-color: red;
+
+        font-weight: bold;
+
+    }
+
+</style>
+
+<body>
+
+<!-- <button id="table">Click</button> -->
+
+<div id="here_table"></div>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+
+<script>
+
+    function addTable(numbers) {
+
+        var $table = $('<table>');
+
+        var $row = $('<tr>');
+
+        var $cell = $('<td>');
+
+        //
+
+        //$('body').append($table).fadeIn();
+
+        $row.appendTo($table);
+
+        //$row.append($cell);
+
+        //
+
+    for(var i = 1; i <= numbers; i++) {
+        console.log();
+        $cell.text(i);
+
+        if (i % 7 === 0) {
+            $cell.addClass('prime');
+        }
+
+        $row.append($cell);
+
+        $cell = $('<td>');
+
+        if (i % 10 === 0) {
+            $row.appendTo($table);
+
+            $row = $('<tr>');
+        }
+
+        /*if (i.val() %  11 === 0) {
+            $table.prepend("</tr>");
+        }*/
+
+        $('#here_table').html($table);
+
+    }
+
+    $('#here_table').delay(5000).fadeOut();
+
+}
+
+
+
+    addTable(1000);
+
+    $(".prime").prev().addClass("adjacent");
+    $(".prime").next().addClass("adjacent");
+
+
+</script>
+
+</body>
+</html>

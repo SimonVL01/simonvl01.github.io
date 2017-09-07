@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        #mySub {
+
+            background-color: red;
+            border: 1px solid red;
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+<h1 id="title">...</h1>
+
+<h2 id="undertext"></h2>
+
+<button id="mySub">Click here</button>
+
+<script src="node_modules/jquery/dist/jquery.js"></script>
+
+<script>
+
+    //var h = document.getElementById("title");
+    //h.textContent = "Welcome to my Website";
+
+    $("#title").html("Welcome to my Website");
+
+    $("#undertext").text("This is the devil, and this is my domain.");
+
+    $(document).ready(function() {
+        $("#mySub").click(function() {
+            $("#mySub").animate({width: "100%", height: "1000px", fontFamily: "Times New Roman", fontSize: "150px", transition: "5000"});
+            $("#mySub").text("HAHAHAHAAAAH!!!");
+
+            $("#mySub").delay(2000).fadeToggle();
+
+            //$("#mySub").hide();
+
+        });
+    });
+
+</script>
+
+</body>
+</html>

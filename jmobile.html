@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html> <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <title>Page Template</title>
+    <link rel="stylesheet" href="node_modules/jquery-mobile/dist/jquery.mobile.css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/jquery-mobile/dist/jquery.mobile.js"></script>
+</head>
+
+<body>
+
+<div>
+
+        <div data-role="page">
+            <div data-role="header">
+                <h1>My Page Header</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <h2>My Page Content</h2>
+                <p>Here is some useful information</p>
+            </div>
+
+            <div data-role="footer">
+                <h4>My Page Footer</h4>
+                <a href="#page-one" class="ui-btn ui-shadow ui-corner-all" data-transition="slidefade">Go to pages</a>
+                <button id="myId" data-role="button">Show details</button>
+            </div>
+        </div>
+
+    <div data-role="page" id="page-one" data-dialog="true">
+        <div role="main" class="ui-content">
+            <h1>Page one</h1>
+            <p>First Page</p>
+            <a href="#page-two" class="ui-btn ui-shadow ui-corner-all" data-transition="slidefade">Go to page two</a>
+
+            <a href="details.html" data-role="button" class="ui-btn ui-shadow ui-corner-all" data-transition="slidefade">Visit details</a>
+        </div>
+    </div>
+
+        <div data-role="page" id="page-two" data-dialog="true">
+            <div role="main" class="ui-content">
+                <h1>Page two</h1>
+                <p>Second Page</p>
+                <a href="#page-one" class="ui-btn ui-shadow ui-corner-all" data-transition="slidefade">Go to page one</a>
+            </div>
+        </div>
+
+</div>
+
+<script>
+
+    $(document).on("pageshow", function() {
+
+    $('#myId').on('click', function() {
+        $.mobile.navigate('jmobile.html?id=' + '#page-two')
+    });
+
+    $(window).on('navigate', function(event, data) {
+       if(data.state.direction === 'back') {
+           console.log('Navigate back to ' + data.state.url);
+       } else {
+           console.log('Navigate forward to ' + data.state.url);
+       }
+    });
+    });
+
+</script>
+
+</body>
+
+</html>

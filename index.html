@@ -1,50 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 <head>
+    <title>Google Maps GeoLocator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
 
 
 </head>
 <body>
-    <h1>Hello this is my personal website hosted on Github.</h1>
-    <button id="geo">Push for location</button>
-    <div id="out"></div>
 
-    <script type="text/javascript">
+<h3>My Google Maps Demo</h3>
+<div id="map"></div>
 
-        function geoFindMe() {
-            var output = document.getElementById("out");
+<script>
+    function initMap() {
 
-            if (!navigator.geolocation) {
+        var place = new google.maps.LatLng(51.508742,-0.120850);
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 4,
+            center: place
+        });
+        var marker = new google.maps.Marker({
+            position: place,
+            map: map
+        });
+    }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs3-7s5l-TBIon7gnNlYPRXAE79hNboqM&callback=initMap">
+</script>
 
-                output.innerHTML = "<p>Geolocation is not supported by you browser</p>";
-            }
-
-            function success(position) {
-
-                var latatude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-
-                output.innerHTML = "<p>Latitude is " + latitude + "° <br> Longitude is " + longitude + "</p>";
-
-                var img = "<img src=\"http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + ", " + longitude + "&zoom=13&size=300x300&sensor=false\"/>";
-
-                output.appendChild(img);
-            };
-
-            function error() {
-                output.innerHTML = "Unable to retrieve your location";
-            };
-
-            output.innerHTML = "<p>Locating...</p>";
-
-            navigator.geolocation.getCurrentPosition(success, error);
-        }
-
-        var geo = document.getElementById("geo");
-        geo.addEventListener("click",geoFindMe);
-
-    </script>
 </body>
 </html>
+
